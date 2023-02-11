@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">ホーム</a>
+          <a class="nav-link active" aria-current="page" href="/">ホーム</a>
         </li>
         <li class="nav-item">
           
@@ -16,7 +16,7 @@
       <a class="nav-link" href="#">カート</a>
       <span class="navbar-text ms-4">
       <% if user_signed_in? %>
-        <p>こんにちは, <%= link_to current_user.name, users_show_path %></p>
+        こんにちは, <%= link_to current_user.name, user_session_path %>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to "サインイン", new_user_session_path %>
