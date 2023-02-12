@@ -50,56 +50,41 @@
               </tr>
             </thead>
             <tbody>
+            <% @cart.each_with_index do |item, index|%>
               <tr>
-                <th scope="row">1</th>
-                <td>Pro Package</td>
-                <td>4</td>
-                <td>$200</td>
-                <td>$800</td>
+                <th scope="row"><%= index + 1%></th>
+                <td><%= Product.find(item["product_id"]).product_name %></td>
+                <td><%= item["quantity"] %></td>
+                <td>$<%= Product.find(item["product_id"]).price %></td>
+                <td>$<%= Product.find(item["product_id"]).price * item["quantity"]%></td>
               </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Web hosting</td>
-                <td>1</td>
-                <td>$10</td>
-                <td>$10</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Consulting</td>
-                <td>1 year</td>
-                <td>$300</td>
-                <td>$300</td>
-              </tr>
+              <% end%>
             </tbody>
 
           </table>
         </div>
+        <%= form_with url: "/bill", method: :post do |form| %>
         <div class="row">
-          <div class="col-xl-8">
-            <p class="ms-3">Add additional notes and payment information</p>
-
+          <%= form.label :note, "Note", class: "ms-3"%>
+          <div class="col-xl-8 ms-3">
+            <%= form.text_area :note %>
           </div>
           <div class="col-xl-3">
-            <ul class="list-unstyled">
-              <li class="text-muted ms-3"><span class="text-black me-4">SubTotal</span>$1110</li>
-              <li class="text-muted ms-3 mt-2"><span class="text-black me-4">Tax(15%)</span>$111</li>
-            </ul>
+
             <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span
-                style="font-size: 25px;">$1221</span></p>
+                style="font-size: 25px;">$<%= @total_price %></span></p>
           </div>
         </div>
         <hr>
         <div class="row">
           <div class="col-xl-10">
-            <p>Thank you for your purchase</p>
           </div>
           <div class="col-xl-2">
-            <button type="button" class="btn btn-primary text-capitalize"
-              style="background-color:#60bdf3 ;">Pay Now</button>
-          </div>
-        </div>
+            <%= form.submit "Pay Now", class: "btn btn-primary text-capitalize", style: "background-color:#60bdf3 ;" %>
 
+
+        </div>
+        <% end %>
       </div>
     </div>
   </div>

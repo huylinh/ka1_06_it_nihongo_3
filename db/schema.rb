@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2023_02_12_133905) do
     t.string "product_name"
     t.string "category"
     t.text "description"
-    t.decimal "price"
+    t.integer "price"
     t.string "img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
