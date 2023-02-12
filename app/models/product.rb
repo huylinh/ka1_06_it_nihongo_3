@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  # relation
+  has_many :types
   # Validations to ensure that the product data is valid
   validates :product_name, presence: true
   validates :category, presence: true
