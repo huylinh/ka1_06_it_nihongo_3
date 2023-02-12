@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_11_085100) do
+ActiveRecord::Schema.define(version: 2023_02_12_133905) do
 
   create_table "bills", force: :cascade do |t|
     t.integer "status", default: 0
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2023_02_11_085100) do
     t.index ["product_id"], name: "index_stocks_on_product_id"
   end
 
+  create_table "types", force: :cascade do |t|
+    t.integer "size"
+    t.integer "quantity"
+    t.integer "product_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_types_on_product_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -68,4 +77,5 @@ ActiveRecord::Schema.define(version: 2023_02_11_085100) do
 
   add_foreign_key "bills", "users"
   add_foreign_key "stocks", "products"
+  add_foreign_key "types", "products"
 end

@@ -1,0 +1,49 @@
+<h1>あなたのカート</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>製品</th>
+      <th>価格</th>
+      <th>量</th>
+      <th>合計</th>
+      <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @cart.each do |item| %>
+    <tr>
+      <td>
+        <%= form_tag(edit_quantity_cart_path(product), method: :patch) do %>
+          <%= text_field_tag :quantity, item["quantity"], size: 2 %>
+          <%= submit_tag "Update" %>
+        <% end %>
+      </td>
+      <td><%= number_to_currency(product.price) %></td>
+      <td><%= item["quantity"] * product.price %></td>
+      <td><%= link_to "Delete", cart_path(product), method: :delete %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td colspan="3">合計:</td>
+    <td><%= number_to_currency(@total_price) %></td>
+  </tr>
+  </tbody>
+</table>
+
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #ddd;
+  }
+</style>

@@ -6,29 +6,29 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-(1..50).each do |id|
-    User.create!(
-        email: Faker::Internet.email,
-        name: Faker::Name.name ,
-        phone: Faker::PhoneNumber.cell_phone,
-        address: Faker::Address.full_address,
-        # issue each user the same password
-        password: "123456", 
-        password_confirmation: "123456",
-    )
-end
+# (1..50).each do |id|
+#     User.create!(
+#         email: Faker::Internet.email,
+#         name: Faker::Name.name ,
+#         phone: Faker::PhoneNumber.cell_phone,
+#         address: Faker::Address.full_address,
+#         # issue each user the same password
+#         password: "123456", 
+#         password_confirmation: "123456",
+#     )
+# end
 
 
-(1..50).each do |id|
-    Product.create!(
-        # each user is assigned an id from 1-20
-        product_name: Faker::Commerce.product_name , 
-        category: Faker::Commerce.department(max: 2, fixed_amount: true),
-        desciption: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
-        price: Faker::Number.within(range: 100..200),
+# (1..50).each do |id|
+#     Product.create!(
+#         # each user is assigned an id from 1-20
+#         product_name: Faker::Commerce.product_name , 
+#         category: Faker::Commerce.department(max: 2, fixed_amount: true),
+#         desciption: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
+#         price: Faker::Number.within(range: 100..200),
 
-    )
-end
+#     )
+# end
 
 (1..20).each do |id|
     Stock.create!(
