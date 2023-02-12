@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2023_02_12_133905) do
   create_table "bills", force: :cascade do |t|
     t.integer "status", default: 0
     t.string "note"
-    t.integer "total"
+    t.integer "total", default: 0
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -23,31 +23,24 @@ ActiveRecord::Schema.define(version: 2023_02_12_133905) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer "quality"
-    t.integer "user_id"
-    t.integer "stock_id"
+    t.integer "quantity"
+    t.integer "price"
     t.integer "bill_id"
+    t.integer "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bill_id"], name: "index_items_on_bill_id"
-    t.index ["stock_id"], name: "index_items_on_stock_id"
-    t.index ["user_id"], name: "index_items_on_user_id"
+    t.index ["product_id"], name: "index_items_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.string "product_name"
     t.string "category"
-    t.text "desciption"
-    t.integer "price"
-  end
-
-  create_table "stocks", force: :cascade do |t|
-    t.integer "size"
-    t.integer "quality"
-    t.integer "product_id"
+    t.text "description"
+    t.decimal "price"
+    t.string "img"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_stocks_on_product_id"
   end
 
   create_table "types", force: :cascade do |t|
@@ -76,6 +69,6 @@ ActiveRecord::Schema.define(version: 2023_02_12_133905) do
   end
 
   add_foreign_key "bills", "users"
-  add_foreign_key "stocks", "products"
+  add_foreign_key "items", "products"
   add_foreign_key "types", "products"
 end
