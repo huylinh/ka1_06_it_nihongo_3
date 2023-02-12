@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'invoice/show'
+  # devise_for :users
+  devise_for :users, controllers: { sessions: 'users/sessions' }
   root to: "home#index"
+  
+  # invoice
+  get '/invoice/', to: 'invoice#show'
+  
 end

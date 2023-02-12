@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2023_02_11_085100) do
 
   create_table "bills", force: :cascade do |t|
-    t.integer "status"
+    t.integer "status", default: 0
     t.string "note"
     t.integer "total"
     t.integer "user_id"

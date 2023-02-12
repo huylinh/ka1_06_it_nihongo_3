@@ -30,6 +30,24 @@ end
     )
 end
 
+(1..20).each do |id|
+    Stock.create!(
+        # each user is assigned an id from 1-20
+        size: Faker::Number.within(range: 30..40) , 
+        quality: Faker::Number.within(range: 10..50),
+        product: Product.find(Faker::Number.within(range: 1..50))
+    )
+end
+
+# (1..5).each do |id|
+#     Bill.create!(
+#         # each user is assigned an id from 1-20
+#         size: Faker::Number.within(range: 30..40) , 
+#         quality: Faker::Number.within(range: 10..50),
+#         product: Product.find(Faker::Number.within(range: 1..50))
+#     )
+# end
+
 # # Course
 # (1..40).each do |id|
 #     Course.create!(
