@@ -13,6 +13,7 @@
   <tbody>
   <% @cart.each do |item| %>
     <tr>
+        <% product = Product.find(item["product_id"]) %>
       <td>
         <%= form_tag(edit_quantity_cart_path(product), method: :patch) do %>
           <%= text_field_tag :quantity, item["quantity"], size: 2 %>
@@ -21,7 +22,7 @@
       </td>
       <td><%= number_to_currency(product.price) %></td>
       <td><%= item["quantity"] * product.price %></td>
-      <td><%= link_to "Delete", cart_path(product), method: :delete %></td>
+      <td><%= link_to "Delete", delete_product_cart_path(product), method: :delete %></td>
     </tr>
   <% end %>
   <tr>
