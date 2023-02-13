@@ -1,12 +1,13 @@
-<h1>Bills Total</h1>
+<h1>購入履歴</h1>
 
 <ul>
   <% @bill.each do |bill| %>
     <li>
         購入履歴コード:
         <a href="/history_bills/<%= bill.id %>">
-            <%= bill.id %>
+            <%= bill.id %>  
         </a>
+        <p>ノート: <%= bill.note %></p>
     </li>
   <% end %>
 </ul>
