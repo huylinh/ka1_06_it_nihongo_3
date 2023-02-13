@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   root  "product#index"
 
+  post 'product', to: 'product#add_cart'
+
   get 'bill', to: 'bill#show' # /bill
   post 'bill', to: 'bill#create'
   
