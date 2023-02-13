@@ -13,8 +13,8 @@ class BillController < ApplicationController
       note: params[:note],
       total: @total_price,
     )
-    byebug
-    redirect_to root_path
+
+    redirect_to root_path, success: "Complete!"
   end
 
   private
