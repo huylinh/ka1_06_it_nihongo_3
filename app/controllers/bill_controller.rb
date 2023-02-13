@@ -31,10 +31,7 @@ class BillController < ApplicationController
   end
 
   def read_cart
-    @fake_cart = [
-      {"product_id": "1", "quantity": 1}, {"product_id": "2", "quantity": 1}
-  ].to_json
-  @cart = JSON.parse(@fake_cart)
+  @cart = JSON.parse(cookies[:cart])
   @total_price = @cart.sum { |item| Product.find(item["product_id"]).price * item["quantity"] }
   end
 end
