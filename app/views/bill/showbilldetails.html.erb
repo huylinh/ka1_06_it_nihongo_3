@@ -1,0 +1,13 @@
+<h1>購入履歴: <%= @bill.id %></h1>
+
+<p>ユーザー: <%= @bill.user_id %></p>
+<p>スターテス: <%= @bill.status %></p>
+<p>ノート:<%= @bill.note %></p>
+<p>合計: <%= @bill.total %></p>
+
+<h1> 購入商品一覧</h1>
+<% @products.each do |product| %>
+        <p>商品名: <%= product.product_name%> </p>
+        <p>カテゴリー: <%= product.category%> </p>
+        <br>
+  <% end %>

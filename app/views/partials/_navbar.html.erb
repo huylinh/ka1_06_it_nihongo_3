@@ -18,6 +18,7 @@
       <% if user_signed_in? %>
         こんにちは, <%= link_to current_user.name, user_session_path %>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "購入履歴", history_bills_path %>
       <% else %>
         <%= link_to "サインイン", new_user_session_path %>
         <%= link_to "ユーザ登録", new_user_registration_path %>

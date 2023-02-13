@@ -6,6 +6,15 @@ class BillController < ApplicationController
 
   end
 
+  def show_history
+    @bill = Bill.all
+  end 
+
+  def showbilldetails
+    @bill = Bill.find(params[:id])
+    @products = Product.take(4)
+  end
+
   def create    
     @bill = Bill.create!(
       user_id: current_user.id,
