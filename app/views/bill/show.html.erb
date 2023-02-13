@@ -4,13 +4,13 @@
     <div class="container mb-5 mt-3">
       <div class="row d-flex align-items-baseline">
         <div class="col-xl-9">
-          <p style="color: #7e8d9f;font-size: 20px;">Invoice >><strong></strong></p>
+          <p style="color: #7e8d9f;font-size: 20px;">インヴォイス >><strong></strong></p>
         </div>
         <div class="col-xl-3 float-end">
           <a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i
-              class="fas fa-print text-primary"></i> Print</a>
+              class="fas fa-print text-primary"></i> プリント</a>
           <a class="btn btn-light text-capitalize" data-mdb-ripple-color="dark"><i
-              class="far fa-file-pdf text-danger"></i> Export</a>
+              class="far fa-file-pdf text-danger"></i> エクスポート</a>
         </div>
         <hr>
       </div>
@@ -20,20 +20,20 @@
         <div class="row">
           <div class="col-xl-8">
             <ul class="list-unstyled">
-              <li class="text-muted">To: <span style="color:#5d9fc5 ;">
+              <li class="text-muted">受信者: <span style="color:#5d9fc5 ;">
                 <%= current_user.name %>
               </span></li>
               <li class="text-muted"><%= current_user.email %></li>
               <li class="text-muted"><%= current_user.address %></li>
-              <li class="text-muted"><i class="fas fa-phone">Phone: <%= current_user.phone %></i> </li>
+              <li class="text-muted"><i class="fas fa-phone">電話番号: <%= current_user.phone %></i> </li>
             </ul>
           </div>
           <div class="col-xl-4">
-            <p class="text-muted">Invoice</p>
+            <p class="text-muted">インヴォイス</p>
             <ul class="list-unstyled">
               <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i> <span
                   class="me-1 fw-bold">Status:</span><span class="badge bg-warning text-black fw-bold">
-                  Unpaid</span></li>
+                  未払い</span></li>
             </ul>
           </div>
         </div>
@@ -43,10 +43,10 @@
             <thead style="background-color:#84B0CA ;" class="text-white">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Description</th>
-                <th scope="col">Qty</th>
-                <th scope="col">Unit Price</th>
-                <th scope="col">Amount</th>
+                <th scope="col">デスクリプション</th>
+                <th scope="col">カウント</th>
+                <th scope="col">単価</th>
+                <th scope="col">金額</th>
               </tr>
             </thead>
             <tbody>
@@ -65,13 +65,13 @@
         </div>
         <%= form_with url: "/bill", method: :post do |form| %>
         <div class="row">
-          <%= form.label :note, "Note", class: "ms-3"%>
+          <%= form.label :note, "ノート", class: "ms-3"%>
           <div class="col-xl-8 ms-3">
             <%= form.text_area :note %>
           </div>
           <div class="col-xl-3">
 
-            <p class="text-black float-start"><span class="text-black me-3"> Total Amount</span><span
+            <p class="text-black float-start"><span class="text-black me-3">合計金額</span><span
                 style="font-size: 25px;">$<%= @total_price %></span></p>
           </div>
         </div>
@@ -80,7 +80,7 @@
           <div class="col-xl-10">
           </div>
           <div class="col-xl-2">
-            <%= form.submit "Pay Now", class: "btn btn-primary text-capitalize", style: "background-color:#60bdf3 ;" %>
+            <%= form.submit "今払う", class: "btn btn-primary text-capitalize", style: "background-color:#60bdf3 ;" %>
 
 
         </div>
