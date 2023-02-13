@@ -1,7 +1,7 @@
 <h1>購入履歴: <%= @bill.id %></h1>
 
-<p>ユーザー: <%= @bill.user_id %></p>
-<p>スターテス: <%= @bill.status %></p>
+<p>ユーザー: <%= current_user.name %></p>
+<p>スターテス: 支払い済み（しはらいずみ）</p>
 <p>ノート:<%= @bill.note %></p>
 <p>合計: <%= @bill.total %></p>
 

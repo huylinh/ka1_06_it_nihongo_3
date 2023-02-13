@@ -5,9 +5,10 @@
     <li>
         購入履歴コード:
         <a href="/history_bills/<%= bill.id %>">
-            <%= bill.id %>  
+            <%= bill.id %>  BILL
         </a>
         <p>ノート: <%= bill.note %></p>
+        <p>合計: <%= bill.total %></p>
     </li>
   <% end %>
 </ul>
