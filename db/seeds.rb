@@ -8,10 +8,10 @@
 
 
 User.create!(
-    email: Faker::Internet.email,
-    name: Faker::Name.name ,
-    phone: Faker::PhoneNumber.cell_phone,
-    address: Faker::Address.full_address,
+    email: "a@email.com",
+    name: "ハーキャプテン",
+    phone: "113",
+    address: "ハノイ",
     # issue each user the same password
     password: "123456", 
     password_confirmation: "123456",
@@ -21,28 +21,28 @@ User.create!(
 
 Product.create!(
     # each user is assigned an id from 1-20
-    product_name: "hihi", 
-    category: Faker::Commerce.department(max: 2, fixed_amount: true),
-    description: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
-    price: Faker::Number.number(digits: 3),
+    product_name: "ナイキ ハンター", 
+    category: "ナイキ",
+    description: "値段がとても安いです。",
+    price: "200",
     img: Faker::LoremFlickr.image
 )
 
 
 Product.create!(
     # each user is assigned an id from 1-20
-    product_name: "hihi", 
-    category: Faker::Commerce.department(max: 2, fixed_amount: true),
-    description: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
-    price: Faker::Number.number(digits: 3),
+    product_name: "コンバート ハンター", 
+    category: "コンバート",
+    description:  "値段が安いです。",
+    price: "400",
     img: Faker::LoremFlickr.image
 )
 
 Product.create!(
     # each user is assigned an id from 1-20
-    product_name: "hihi", 
-    category: Faker::Commerce.department(max: 2, fixed_amount: true),
-    description: Faker::Lorem.sentence(word_count: 3, supplemental: true, random_words_to_add: 4),
-    price: Faker::Number.number(digits: 3),
+    product_name: "バレンシアガ ハンター", 
+    category: "バレンシアガ",
+    description: "値段が安いです。";
+    price: "500",
     img: Faker::LoremFlickr.image
 )
