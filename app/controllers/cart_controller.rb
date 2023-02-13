@@ -1,7 +1,13 @@
 class CartController < ApplicationController
   def show
     @cart = cookies[:cart].present? ? JSON.parse(cookies[:cart]) : []
-    @total_price = @cart.sum { |item| Product.find(item["product_id"]).price * item["quantity"] }
+    begin
+      @total_price = @cart.sum { |item| Product.find(item["product_id"]).price * item["quantity"] }
+    rescue
+      cookies[:cart] = []
+      redirect_to root_path
+    end
+   
   end
   
   
