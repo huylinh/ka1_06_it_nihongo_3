@@ -10,15 +10,17 @@
           <a class="nav-link active" aria-current="page" href="/">ホーム</a>
         </li>
         <li class="nav-item">
-          
+            <a class="nav-link ms-4" href="/cart">カート</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link ms-4" href="<%= history_bills_path %>">購入履歴</a>
         </li>
       </ul>
-      <a class="nav-link" href="/cart">カート</a>
-      <span class="navbar-text ms-4">
+
+      <span class="navbar-text ms-5">
       <% if user_signed_in? %>
         こんにちは, <%= link_to current_user.name, user_session_path %>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <%= link_to "購入履歴", history_bills_path %>
       <% else %>
         <%= link_to "サインイン", new_user_session_path %>
         <%= link_to "ユーザ登録", new_user_registration_path %>
