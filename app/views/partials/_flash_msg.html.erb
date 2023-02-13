@@ -1,0 +1,14 @@
+<div id="flash">
+<% flash.each do |name,msg| %>
+  <div class="alert alert-<%= name %>" role="alert">
+      <%= msg %> 
+  </div>
+<%end%>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+  setTimeout(function(){
+    $('#flash').remove();
+  }, 5000);
+ })
+</script>
