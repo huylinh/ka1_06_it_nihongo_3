@@ -1,30 +1,30 @@
-<h1>Product#index</h1>
-<% if @products.count == 0 %>
-    <div>Do not have product in database</div>
-    <% else %>
-   <div style="display: flex;
+<h1 style="text-align: center; margin: 2rem 0">商品一覧</h1>
+<div style="display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;">
+    align-items: stretch;">
+    <% if @products.count == 0 %>
+    <div>Do not have product in database</div>
+    <div>
+    <% else %>
         <% @products.each do |product| %> 
-    <div style="width:200px; margin: 0 2rem; min-height: 400px">
-        <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-   text-align: center; 
-    font-family: arial;">
-      <img src="/w3images/jeans3.jpg" alt="Denim Jeans" style="width:100%">
-      <h4><%= product.product_name %></h1>
-      <p> <%= product.price %></p>
-        <p> <%= product.category %></p>
-      <p>
-           <%= product.description %>
-      </p>
-      
+  <div class="card" style="width: 18rem; margin: 1rem 2rem;">
+  <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/b89c9e48-d1bf-4d72-afd5-18ac97a4c072/air-force-1-07-shoes-hr5tH4.png" 
+  class="card-img-top" alt="shoes_img">
+  <div class="card-body">
+    <h5 class="card-title"><%= product.product_name %></h5>
+    <p class="card-text"><%= product.category %></p>
+    <p class="card-text"><%= product.description %></p>
+    <p class="card-text" style="color: #a44211; font-weight: bold">
+        <%= product.price %> $
+    </p>
     <%= form_with url: "/product", method: :post do |form| %>
-      <%= form.hidden_field :product_id , value: product.id%>
-      <%= form.submit "Add to cart" %>
+    <%= form.hidden_field :product_id , value: product.id%>
+    <%= form.submit "Add to cart" %>
+</div>
+  </div>
     <% end %>
-    </div>
-    </div>
     <%end%>
    </div>
     <%end%>
+</div>
