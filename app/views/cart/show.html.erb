@@ -1,3 +1,4 @@
+<div class="container mt-4">
 <h1 class="font-weight-bold">あなたのカート</h1>
 
 <table>
@@ -8,7 +9,7 @@
       <th>価格</th>
       <th>量</th>
       <th>合計</th>
-      <th>Actions</th>
+      <th>行動</th>
   </tr>
   </thead>
   <tbody>
@@ -20,12 +21,12 @@
       <td>
         <%= form_tag(edit_quantity_cart_path(product), method: :patch) do %>
           <%= number_field_tag :quantity, item["quantity"], size: 2 %>
-          <%= submit_tag "Update", class: "btn btn-secondary" %>
+          <%= submit_tag "アップデート", class: "btn btn-secondary" %>
         <% end %>
       </td>
       <td><%= number_to_currency(product.price) %></td>
       <td><%= number_to_currency(item["quantity"] * product.price) %></td>
-      <td><%= link_to "Delete", delete_product_cart_path(product), class: "btn btn-danger", method: :delete %></td>
+      <td><%= link_to "消去", delete_product_cart_path(product), class: "btn btn-danger", method: :delete %></td>
     </tr>
   <% end %>
   <tr>
@@ -34,7 +35,8 @@
   </tr>
   </tbody>
 </table>
-<%= link_to "Checkout", bill_path, class: "mt-3 btn btn-primary" %>
+<%= link_to "チェックアウト", bill_path, class: "mt-3 btn btn-primary" %>
+</div>
 
 <style>
   table {
