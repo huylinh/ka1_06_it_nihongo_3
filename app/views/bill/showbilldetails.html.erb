@@ -3,7 +3,7 @@
 <p>ユーザー: <%= current_user.name %></p>
 <p>スターテス: 支払い済み（しはらいずみ）</p>
 <p>ノート:<%= @bill.note %></p>
-<p>合計: <%= @bill.total %></p>
+<p>合計: <%= number_to_currency(@bill.total) %></p>
 
 <h1> 購入商品一覧</h1>
 <div class="container mt-4">
@@ -18,7 +18,7 @@
           <div style="flex-grow: 1;">
               <h5 class="card-title"><%= product.product_name %></h5>
       <div class="card-text">
-      <p> <%= product.price %></p>
+      <p> <%= number_to_currency(product.price) %></p>
         <p> <%= product.category %></p>
       <p>
            <%= product.description %>
@@ -32,7 +32,7 @@
     
       <img src="<%= product.img%>" alt="Denim Jeans" style="width:100%">
       <h4><%= product.product_name %></h1>
-      <p> <%= product.price %></p>
+      <p> <%= number_to_currency(product.price) %></p>
         <p> <%= product.category %></p>
       <p>
            <%= product.description %>

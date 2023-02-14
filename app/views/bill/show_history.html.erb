@@ -8,7 +8,7 @@
             <%= bill.id %>  BILL
         </a>
         <p>ノート: <%= bill.note %></p>
-        <p>合計: <%= bill.total %></p>
+        <p>合計: <%= number_to_currency(bill.total) %></p>
     </li>
   <% end %>
 </ul>

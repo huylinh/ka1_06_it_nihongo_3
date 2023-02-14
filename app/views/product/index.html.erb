@@ -11,7 +11,7 @@
           <div style="flex-grow: 1;">
               <h5 class="card-title"><%= product.product_name %></h5>
       <div class="card-text">
-      <p> <%= product.price %></p>
+      <p> <%= number_to_currency(product.price) %></p>
         <p> <%= product.category %></p>
       <p>
            <%= product.description %>
