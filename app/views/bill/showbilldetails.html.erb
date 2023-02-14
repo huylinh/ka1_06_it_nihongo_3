@@ -6,20 +6,41 @@
 <p>合計: <%= @bill.total %></p>
 
 <h1> 購入商品一覧</h1>
+<div class="container mt-4">
+    <div class="row">
 <% item = @bill.items%>
     <% item.each do |i| %> 
     <% product = i.product%>
-    <div style="width:200px; margin: 0 2rem; min-height: 400px">
+    <div class="col-lg-3 col-md-4 col-sm-6">
+    <div class="card mb-3" style="min-height: 500px">
+      <img src="<%= product.img%>" class="card-img-top" alt="<%= product.product_name %>" style="width:100%">
+      <div class="card-body" style="display: flex; flex-flow: column;">
+          <div style="flex-grow: 1;">
+              <h5 class="card-title"><%= product.product_name %></h5>
+      <div class="card-text">
+      <p> <%= product.price %></p>
+        <p> <%= product.category %></p>
+      <p>
+           <%= product.description %>
+      </p>
+      </div>
+          </div>
+    <!-- <div style="width:200px; margin: 0 2rem; min-height: 400px">
         <div style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-   text-align: center; 
+       text-align: center; 
     font-family: arial;">
-
+    
       <img src="<%= product.img%>" alt="Denim Jeans" style="width:100%">
       <h4><%= product.product_name %></h1>
       <p> <%= product.price %></p>
         <p> <%= product.category %></p>
       <p>
            <%= product.description %>
-      </p>
-      
-<% end %>
+      </p> -->
+      </div>
+    </div>
+    </div>
+    <%end%>
+   </div>
+   </div>
+     
